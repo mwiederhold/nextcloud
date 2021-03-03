@@ -6,7 +6,7 @@
 install_pip () {
         curl https://bootstrap.pypa.io/get-pip.py | $SUDO $PYTHON_BIN
         $SUDO pip install setuptools -U
-        $SUDO pip install ansible -U
+        $SUDO pip install ansible==2.9.0 -U
         $SUDO pip install netaddr -U
         $SUDO pip install dnspython -U
         $SUDO pip install passlib -U
@@ -33,10 +33,10 @@ prepare_ubuntu() {
 prepare_debian() {
         $SUDO apt update -y
         $SUDO apt dist-upgrade -y
-        $SUDO apt install dirmngr curl git mc vim facter python python-apt aptitude -y
+        $SUDO apt install dirmngr curl git mc vim facter python3 python3-apt python3-distutils aptitude -y
         [ $(uname -m) == "aarch64" ] && $SUDO apt install gcc python-dev libffi-dev libssl-dev make -y
 
-        PYTHON_BIN=/usr/bin/python
+        PYTHON_BIN=/usr/bin/python3
         install_pip
         $SUDO pip install python-apt -U
 
