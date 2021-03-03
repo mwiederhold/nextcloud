@@ -71,11 +71,11 @@
     group: root
     mode: 0644
 
-- name: enable service disable-transparent-hugepages
-  service:
-    name: disable-transparent-huge-pages.service
-    enabled: true
-    state: started
+# - name: enable service disable-transparent-hugepages
+#   service:
+#     name: disable-transparent-huge-pages.service
+#     enabled: true
+#     state: started
     
 - name: create symbolic link to /usr/bin/gs
   file:
